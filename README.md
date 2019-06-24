@@ -27,4 +27,9 @@ specs:
     port: 8787
 ```
 
+Another useful option is to mount volume per user e.g.:
+```
+    container-volumes: [ "/tmp/#{proxy.userId}:/home/rstudio" ]
+```
+
 (c) Copyright Open Analytics NV, 2019.
