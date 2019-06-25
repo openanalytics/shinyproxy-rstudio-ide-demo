@@ -27,9 +27,22 @@ specs:
     port: 8787
 ```
 
-Another useful option is to mount volume per user e.g.:
+Another useful option is to mount volume per user, e.g.:
 ```
     container-volumes: [ "/tmp/#{proxy.userId}:/home/rstudio" ]
+```
+
+Here `/home/rstudio` is used inside the container since "rstudio" is the default username in `rocker/rstudio` image. 
+If desired, this can be changed by setting `USER` environment variable in the application specs as follows:
+```
+specs:
+  - id: rstudio
+    container-image: openanalytics/shinyproxy-rstudio-ide-demo
+    container-env:
+      DISABLE_AUTH: true
+      USER: "#{proxy.userId}"
+    port: 8787
+    container-volumes: [ "/tmp/#{proxy.userId}:/home/#{proxy.userId}" ]
 ```
 
 (c) Copyright Open Analytics NV, 2019.
