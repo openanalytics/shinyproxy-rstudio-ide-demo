@@ -3,7 +3,7 @@
 **RStudio version**: 1.4.1106
 **R Version**: 4.0.4
 
-[Click here for a version using R 3.6.0]()
+[Click here for a version using R 3.6.0](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.2.1335__3.6.0)
 
 [Screenshot](#screenshot)
 
