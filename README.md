@@ -4,8 +4,10 @@
 **R Version**: 4.0.4
 
 [Click here for a version using R 3.6.0]()
+[Screenshot](#screenshot)
 
-This version of RStudio requires at least ShinyProxy 2.5.0.
+This repository explains how to run RStudio in ShinyProxy.
+The latest version of RStudio requires at least ShinyProxy 2.5.0.
 
 To pull the image made in this repository from Docker Hub, use
 
@@ -23,7 +25,7 @@ To build the image from the Dockerfile, navigate into the root directory of this
 sudo docker build -t openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4 .
 ```
 
-Note that for deployment on ShinyProxy the environment variables `DISABLE_AUTH` must be set to `true` and `WWW_ROOT_PATH` to the path of the application, finally the port of the container must be configured to 8787,
+Note that for deployment on ShinyProxy the environment variables `DISABLE_AUTH` must be set to `true` and `WWW_ROOT_PATH` to the path of the application, finally the port of the container must be configured to 8787, e.g.:
 
 ```
 specs:
@@ -53,5 +55,9 @@ specs:
     port: 8787
     container-volumes: [ "/tmp/#{proxy.userId}:/home/#{proxy.userId}" ]
 ```
+
+## Screenshot
+
+![RStudio](.github/screenshots/rstudio.png)
 
 (c) Copyright Open Analytics NV, 2019-2021.
