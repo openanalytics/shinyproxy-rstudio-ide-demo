@@ -14,6 +14,7 @@ echo "PATH=${PATH}" >> ${R_HOME}/etc/Renviron
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+printenv >> /home/$USER/.Renviron
 
 if [[ ${DISABLE_AUTH,,} == "true" ]]
 then
