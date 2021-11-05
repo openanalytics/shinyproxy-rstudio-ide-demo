@@ -36,7 +36,10 @@ specs:
     container-image: openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4
     container-env:
       DISABLE_AUTH: true
+      # Use the following line when using ShinyProxy 2.6.0 or later
       WWW_ROOT_PATH: "#{proxy.getRuntimeValue('SHINYPROXY_PUBLIC_PATH')}"
+      # Use the following line when using ShinyProxy 2.5.0
+      # WWW_ROOT_PATH: "#{proxySpec.containerSpecs[0].env.get('SHINYPROXY_PUBLIC_PATH')}"
     port: 8787
 ```
 
@@ -56,7 +59,10 @@ specs:
     container-env:
       DISABLE_AUTH: true
       USER: "#{proxy.userId}"
+      # Use the following line when using ShinyProxy 2.6.0 or later
       WWW_ROOT_PATH: "#{proxy.getRuntimeValue('SHINYPROXY_PUBLIC_PATH')}"
+      # Use the following line when using ShinyProxy 2.5.0
+      # WWW_ROOT_PATH: "#{proxySpec.containerSpecs[0].env.get('SHINYPROXY_PUBLIC_PATH')}"
     port: 8787
     container-volumes: [ "/tmp/#{proxy.userId}:/home/#{proxy.userId}" ]
 ```
@@ -65,4 +71,4 @@ specs:
 
 ![RStudio](.github/screenshots/rstudio.png)
 
-**(c) Copyright Open Analytics NV, 2021.**
+**(c) Copyright Open Analytics NV, 2019-2021.**
