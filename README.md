@@ -1,21 +1,22 @@
 # Running RStudio inside ShinyProxy
 
-**RStudio version**: 1.4.1106
-**R Version**: 4.0.4
+**RStudio version**: 2021.09.2+382
+**R Version**: 4.1.2
 
-[Click here for a version using R 3.6.0](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.2.1335__3.6.0)
+- [Click here for a version using R 3.6.0](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.2.1335__3.6.0)
+- [Click here for a version using R 4.0.4](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.4.1106__4.0.4)
 
 [Screenshot](#screenshot)
 
 This repository explains how to run RStudio in ShinyProxy.
-The latest version of RStudio requires at least ShinyProxy 2.5.0.
+RStudio 4.0.0 and later requires at least ShinyProxy 2.5.0.
 
 ## Building the Docker image
 
 To pull the image made in this repository from Docker Hub, use
 
 ```bash
-sudo docker pull openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4
+sudo docker pull openanalytics/shinyproxy-rstudio-ide-demo:2021.09.2_382__4.1.2
 ```
 
 The relevant Docker Hub repository can be found at [https://hub.docker.com/r/openanalytics/shinyproxy-rstudio-ide-demo](https://hub.docker.com/r/openanalytics/shinyproxy-rstudio-ide-demo)
@@ -23,7 +24,7 @@ The relevant Docker Hub repository can be found at [https://hub.docker.com/r/ope
 To build the image from the Dockerfile, navigate into the root directory of this repository and run
 
 ```bash
-sudo docker build -t openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4 .
+sudo docker build -t openanalytics/shinyproxy-rstudio-ide-demo:2021.09.2_382__4.1.2 .
 ```
 
 ## ShinyProxy Configuration
@@ -33,7 +34,7 @@ For deployment on ShinyProxy the environment variables `DISABLE_AUTH` must be se
 ```yaml
 specs:
   - id: rstudio
-    container-image: openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4
+    container-image: openanalytics/shinyproxy-rstudio-ide-demo:2021.09.2_382__4.1.2
     container-env:
       DISABLE_AUTH: true
       # Use the following line when using ShinyProxy 2.6.0 or later
@@ -55,7 +56,7 @@ If desired, this can be changed by setting `USER` environment variable in the ap
 ```yaml
 specs:
   - id: rstudio
-    container-image: openanalytics/shinyproxy-rstudio-ide-demo:1.4.1106__4.0.4
+    container-image: openanalytics/shinyproxy-rstudio-ide-demo:2021.09.2_382__4.1.2
     container-env:
       DISABLE_AUTH: true
       USER: "#{proxy.userId}"
@@ -71,4 +72,4 @@ specs:
 
 ![RStudio](.github/screenshots/rstudio.png)
 
-**(c) Copyright Open Analytics NV, 2019-2021.**
+**(c) Copyright Open Analytics NV, 2019-2022.**
