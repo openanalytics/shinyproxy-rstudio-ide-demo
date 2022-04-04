@@ -68,6 +68,14 @@ specs:
     container-volumes: [ "/tmp/#{proxy.userId}:/home/#{proxy.userId}" ]
 ```
 
+## Optional features
+
+Check the `Dockerfile` for instructions on how to change the default behavior of
+the Docker image to:
+
+- use all environment variables in RStudio
+- read `/etc/profile` when starting a R session
+
 ## Screenshot
 
 ![RStudio](.github/screenshots/rstudio.png)

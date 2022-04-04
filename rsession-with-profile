@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source /etc/profile
+exec /usr/lib/rstudio-server/bin/rsession $@
