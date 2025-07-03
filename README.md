@@ -1,11 +1,12 @@
 # Running RStudio inside ShinyProxy
 
-**RStudio version**: 2023.06.0 Build 421
-**R Version**: 4.3.1
+**RStudio version**: 2025.05.1 Build 513
+**R Version**: 4.5.1
 
 - [Click here for a version using R 3.6.0](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.2.1335__3.6.0)
 - [Click here for a version using R 4.0.4](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/1.4.1106__4.0.4)
 - [Click here for a version using R 4.1.2](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/2021.09.2_382__4.1.2)
+- [Click here for a version using R 4.3.1](https://github.com/openanalytics/shinyproxy-rstudio-ide-demo/tree/2023.06.0_421__4.3.1)
 
 [Screenshot](#screenshot)
 
@@ -17,7 +18,7 @@ RStudio 4.3.1 and later requires at least ShinyProxy 2.5.0.
 To pull the image made in this repository from Docker Hub, use
 
 ```bash
-sudo docker pull openanalytics/shinyproxy-rstudio-ide-demo:2023.06.0_421__4.3.1
+sudo docker pull openanalytics/shinyproxy-rstudio-ide-demo:2025.05.1_513__4.5.1
 ```
 
 The relevant Docker Hub repository can be found at [https://hub.docker.com/r/openanalytics/shinyproxy-rstudio-ide-demo](https://hub.docker.com/r/openanalytics/shinyproxy-rstudio-ide-demo)
@@ -25,7 +26,7 @@ The relevant Docker Hub repository can be found at [https://hub.docker.com/r/ope
 To build the image from the Dockerfile, navigate into the root directory of this repository and run
 
 ```bash
-sudo docker build -t openanalytics/shinyproxy-rstudio-ide-demo:2023.06.0_421__4.3.1 .
+sudo docker build -t openanalytics/shinyproxy-rstudio-ide-demo:2025.05.1_513__4.5.1 .
 ```
 
 ## ShinyProxy Configuration
@@ -36,13 +37,10 @@ For deployment on ShinyProxy the environment variables `DISABLE_AUTH` must be se
 proxy:
   specs:
     - id: rstudio
-      container-image: openanalytics/shinyproxy-rstudio-ide-demo:2023.06.0_421__4.3.1
+      container-image: openanalytics/shinyproxy-rstudio-ide-demo:2025.05.1_513__4.5.1
       container-env:
         DISABLE_AUTH: true
-        # Use the following line when using ShinyProxy 2.6.0 or later
         WWW_ROOT_PATH: "#{proxy.getRuntimeValue('SHINYPROXY_PUBLIC_PATH')}"
-        # Use the following line when using ShinyProxy 2.5.0
-        # WWW_ROOT_PATH: "#{proxySpec.containerSpecs[0].env.get('SHINYPROXY_PUBLIC_PATH')}"
       port: 8787
 ```
 
@@ -59,14 +57,11 @@ If desired, this can be changed by setting `USER` environment variable in the ap
 proxy:
   specs:
     - id: rstudio
-      container-image: openanalytics/shinyproxy-rstudio-ide-demo:2023.06.0_421__4.3.1
+      container-image: openanalytics/shinyproxy-rstudio-ide-demo:2025.05.1_513__4.5.1
       container-env:
         DISABLE_AUTH: true
         USER: "#{proxy.userId}"
-        # Use the following line when using ShinyProxy 2.6.0 or later
         WWW_ROOT_PATH: "#{proxy.getRuntimeValue('SHINYPROXY_PUBLIC_PATH')}"
-        # Use the following line when using ShinyProxy 2.5.0
-        # WWW_ROOT_PATH: "#{proxySpec.containerSpecs[0].env.get('SHINYPROXY_PUBLIC_PATH')}"
       port: 8787
       container-volumes: [ "/tmp/#{proxy.userId}:/home/#{proxy.userId}" ]
 ```
@@ -83,4 +78,4 @@ the Docker image to:
 
 ![RStudio](.github/screenshots/rstudio.png)
 
-**(c) Copyright Open Analytics NV, 2019-2022.**
+**(c) Copyright Open Analytics NV, 2019-2025.**
